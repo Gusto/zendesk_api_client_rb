@@ -457,6 +457,11 @@ module ZendeskAPI
       ZendeskAPI::Collection.new(client, self, :path => "incremental/tickets?start_time=#{start_time.to_i}")
     end
 
+    def self.incremental_export_old_api(client, start_time)
+      ZendeskAPI::Collection.new(client, self, :path => "exports/tickets?start_time=#{start_time.to_i}")
+    end
+
+
     # Imports a ticket through the imports/tickets endpoint using save!
     # @param [Client] client The {Client} object to be used
     # @param [Hash] attributes The attributes to create.
